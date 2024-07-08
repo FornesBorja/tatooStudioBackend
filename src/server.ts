@@ -7,6 +7,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
 
+//Auth
+
+
 //Services
 app.get("/api/services", getAllServices)
 
