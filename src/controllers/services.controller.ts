@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { services } from "../database/models/service";
+import { service } from "../database/models/service";
 
 export const getAllServices = async (req: Request, res: Response) => {
     try {
-      const allServices = await services.find();
+      const allServices = await service.find();
   
       return res.json({
         success: true,
-        message: "Authors retrieve succesfully",
+        message: "Services retrieved succesfully",
         data: allServices,
       });
     } catch (error) {
