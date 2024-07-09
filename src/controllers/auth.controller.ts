@@ -47,10 +47,8 @@ export const register = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
   try {
-    // 1. recuperar info
     const { email, password } = req.body
 
-    // 2. validar info
     if (!email || !password) {
       return res.status(400).json(
         {
@@ -60,7 +58,6 @@ export const login = async (req: Request, res: Response) => {
       )
     }
 
-    // 3. Comprobar si el usuario existe 
     const newUser = await user.findOne(
       {
         where: { email: email }
@@ -76,7 +73,6 @@ export const login = async (req: Request, res: Response) => {
       )
     }
 
-    // 4. Comprobar la contraseña 
     const isPasswordValid = bcrypt.compareSync(password, newUser.passwordHash)
     
     if(!isPasswordValid) {
@@ -88,7 +84,6 @@ export const login = async (req: Request, res: Response) => {
       )
     }
 
-    // 5. creacionn del token
     const token = jwt.sign(
       {
         id: newUser.id,
