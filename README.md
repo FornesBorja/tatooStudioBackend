@@ -53,11 +53,15 @@ Tecnologías utilizadas:
 
 <details>
 <summary>Auth</summary>
-- AUTH
-    - REGISTER
-        - BY DEFAULT IS USER.       
-            POST http://localhost:4000/api/auth/register
-        body:
+
+- REGISTER
+
+    - BY DEFAULT IS USER.
+
+        POST http://localhost:4000/api/auth/register
+
+        Body:
+
         ``` js
             {
                 "firstName":"Pepe",
@@ -66,10 +70,12 @@ Tecnologías utilizadas:
             }
         ```
 
-    - LOGIN 
-        - IT WILL RETURN A TOKEN.
-            POST http://localhost:4000/api/auth/login
-        body:
+- LOGIN 
+    - IT WILL RETURN A TOKEN.
+
+        POST http://localhost:4000/api/auth/login
+
+        Body:
         ``` js
             {
                 "email":"pepe@pepe.com",
@@ -79,10 +85,28 @@ Tecnologías utilizadas:
 </details>
 <details>
 <summary>Users</summary>
-- USERS
-    - GET ALL USERS (SUPER_ADMIN)
-        - ONLY SUPER_ADMIN IS ALLOWED TO DO THIS ENDPOINT       
-            GET http://localhost:4000/api/users
+
+- GET ALL USERS (SUPER_ADMIN)
+
+    - ONLY SUPER_ADMIN IS ALLOWED TO ACCESS TO THIS ENDPOINT
+
+        GET http://localhost:4000/api/users
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
+            }
+        ```
+        This token is just an example, it doesn't work.
+
+- GET USER PROFILE
+
+    - ONLY THE USER IS ALLOWED TO DO THIS ENDPOINT
+
+        GET http://localhost:4000/api/users/profile
+
         Auth:
         ``` bearer
             {
@@ -90,5 +114,31 @@ Tecnologías utilizadas:
             }
         ```
         This token is just an example, it doesn't work.
+
+- EDIT USER PROFILE
+
+    - USER CAN EDIT ITS INFO
+
+    PUT http://localhost:/api/users/profile
+
+    Body:
+
+    ``` 
+        {
+            "email":"hola@pepe.com",
+        }
+    ```
+
+    In the body, the fields you want to edit are placed. Here is an example.
+
+    Auth:
+
+    ``` bearer
+        {
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
+        }
+    ```
+        
+    This token is just an example, it doesn't work.
 
 </details>
