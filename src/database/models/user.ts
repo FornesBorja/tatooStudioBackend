@@ -4,6 +4,9 @@ import { role } from "./role"
 
 @Entity('user')
 export class user extends BaseEntity{
+    password(password: any, password1: any) {
+      throw new Error("Method not implemented.")
+    }
     @PrimaryGeneratedColumn()
     id!: number
 
