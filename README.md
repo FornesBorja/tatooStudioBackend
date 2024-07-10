@@ -50,12 +50,12 @@ Tecnologías utilizadas:
 7. ...
 
 ## Endpoints
-<details>
-<summary>Endpoints</summary>
 
+<details>
+<summary>Auth</summary>
 - AUTH
     - REGISTER
-
+        - BY DEFAULT IS USER.       
             POST http://localhost:4000/api/auth/register
         body:
         ``` js
@@ -66,21 +66,29 @@ Tecnologías utilizadas:
             }
         ```
 
-    - LOGIN
-
+    - LOGIN 
+        - IT WILL RETURN A TOKEN.
             POST http://localhost:4000/api/auth/login
         body:
         ``` js
             {
-                "user": "David",
-                "email": "david@david.com",
-                "password": "princes"
+                "email":"pepe@pepe.com",
+                "password":"123456789"
             }
         ```
-- RUTINAS
-    - RECUPERAR RUTINAS  
+</details>
+<details>
+<summary>Users</summary>
+- USERS
+    - GET ALL USERS (SUPER_ADMIN)
+        - ONLY SUPER_ADMIN IS ALLOWED TO DO THIS ENDPOINT       
+            GET http://localhost:4000/api/users
+        Auth:
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
+            }
+        ```
+        This token is just an example, it doesn't work.
 
-            GET http://localhost:3000/api/rutina
-
-    - ...
 </details>
