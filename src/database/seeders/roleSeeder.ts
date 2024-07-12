@@ -1,7 +1,7 @@
 import { AppDataSource } from "../database";
 import { role } from "../models/role";
 
-const userSeeder = async () => {
+const roleSeeder = async () => {
     try {
     await AppDataSource.initialize()
 
@@ -29,4 +29,4 @@ const userSeeder = async () => {
   }
 }
 
-export default userSeeder;
+export default roleSeeder;
