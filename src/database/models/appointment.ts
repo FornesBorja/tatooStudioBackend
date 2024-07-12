@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { service } from "./service";
 import { user } from "./user";
 
@@ -31,4 +31,27 @@ export class Appointment extends BaseEntity {
     @ManyToOne(() =>service, (service: { appointments: any; }) => service.appointments)
     @JoinColumn({ name: "service_id" })
     service!: service;
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    async validate() {
+    if (!this.appointmentDate) {
+      throw new Error("Appointment date is required");
+    }
+
+    const currentDate = new Date();
+    if (this.appointmentDate < currentDate) {
+      throw new Error("Appointment date cannot be in the past");
+    }
+    
+    const artist = await user.findOne({ where: { id: this.artistId } });
+    
+    if (!artist) {
+      throw new Error("Artist not found");
+    }
+
+    if (![1, 2].includes(artist.roleId)) {
+      throw new Error("Artist must have artist or super_admin");
+    }
+  }
 }
