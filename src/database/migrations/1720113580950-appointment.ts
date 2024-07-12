@@ -19,7 +19,11 @@ export class Appointment1720113580950 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: "user_id",
+            name: "client_id",
+            type: "int",
+          },
+          {
+            name: "artist_id",
             type: "int",
           },
           {
@@ -29,7 +33,12 @@ export class Appointment1720113580950 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            columnNames: ["user_id"],
+            columnNames: ["client_id"],
+            referencedTableName: "user",
+            referencedColumnNames: ["id"],
+          },
+          {
+            columnNames: ["artist_id"],
             referencedTableName: "user",
             referencedColumnNames: ["id"],
           },
