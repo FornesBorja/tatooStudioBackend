@@ -78,8 +78,8 @@ Tecnologías utilizadas:
         Body:
         ``` js
             {
-                "email":"pepe@pepe.com",
-                "password":"123456789"
+                "email":"juan.perez@example.com",
+                "password":"Pass1234!"
             }
         ```
 </details>
