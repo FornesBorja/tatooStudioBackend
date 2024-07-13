@@ -44,5 +44,52 @@ export const createAppointment = async(req: Request, res: Response) => {
         }
       )
     }
+}
+
+export const updateAppointment = async (req: Request, res: Response) => {
+  try {
+      const clientId = req.tokenData.id;
+      const appointmentID = req.body.id;
+      const body = req.body;
+
+      const Appointment = await appointment.findOne(
+          {
+              where: {
+                id: parseInt(appointmentID),
+                clientId
+              }
+          }
+      )
+
+      if (!Appointment) {
+        throw new Error("Appointment does not exist!");
+      }
+
+      const updateAppointment = await appointment.update(
+          {
+              id: parseInt(appointmentID),
+              clientId
+          },
+          body
+      )
+
+    return res.status(200).json(
+          {
+              success: true,
+              message: "Appointment updatetented successfully!",
+              data: updateAppointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              success: false,
+              message: "Error updating your appoinment",
+              error: error
+          }
+      )
+
   }
+}
 
