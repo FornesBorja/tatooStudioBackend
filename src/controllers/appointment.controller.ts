@@ -181,8 +181,8 @@ export const findAppointmendById = async (req: Request, res: Response) => {
           }
       )
 
-      if (!appointmentId) {
-          throw new Error ("Appointment not found or you cant search an appointment which is not your's");
+      if (!Appointment) {
+          throw new Error ("Appointment not found or you cant search an appointment which is not yours");
       }
 
       return res.json(
