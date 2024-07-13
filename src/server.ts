@@ -12,6 +12,16 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
 
+//To check the status of the server
+app.get('/healthy', (req, res) => {
+  res.status(200).json(
+    {
+      success: true,
+      message: 'Server is healthy!'
+    }
+  )
+})
+
 //Auth
 app.post("/api/auth/register", register)
 app.post("/api/auth/login", login)
