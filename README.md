@@ -58,7 +58,7 @@ Tecnologías utilizadas:
 
     - BY DEFAULT IS USER.
 
-        POST http://localhost:4000/api/auth/register
+        POST https://tattoo-studio-fornesb.zeabur.app/api/auth/register
 
         Body:
 
@@ -90,7 +90,7 @@ Tecnologías utilizadas:
 
     - ONLY SUPER_ADMIN IS ALLOWED TO ACCESS TO THIS ENDPOINT
 
-        GET http://localhost:4000/api/users
+        GET https://tattoo-studio-fornesb.zeabur.app/api/users
 
     Auth:
 
@@ -105,7 +105,7 @@ Tecnologías utilizadas:
 
     - ONLY THE USER IS ALLOWED TO DO THIS ENDPOINT
 
-        GET http://localhost:4000/api/users/profile
+        GET https://tattoo-studio-fornesb.zeabur.app/api/users/profile
 
         Auth:
         ``` bearer
@@ -119,7 +119,7 @@ Tecnologías utilizadas:
 
     - USER CAN EDIT ITS INFO
 
-    PUT http://localhost:/api/users/profile
+    PUT https://tattoo-studio-fornesb.zeabur.app/api/users/profile
 
     Body:
 

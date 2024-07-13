@@ -44,5 +44,163 @@ export const createAppointment = async(req: Request, res: Response) => {
         }
       )
     }
-  }
+}
 
+export const updateAppointment = async (req: Request, res: Response) => {
+  try {
+      const clientId = req.tokenData.id;
+      const appointmentID = req.body.id;
+      const body = req.body;
+
+      const Appointment = await appointment.findOne(
+          {
+              where: {
+                id: parseInt(appointmentID),
+                clientId
+              }
+          }
+      )
+
+      if (!Appointment) {
+        throw new Error("Appointment does not exist!");
+      }
+
+      const updateAppointment = await appointment.update(
+          {
+              id: parseInt(appointmentID),
+              clientId
+          },
+          body
+      )
+
+    return res.status(200).json(
+          {
+              success: true,
+              message: "Appointment updatetented successfully!",
+              data: updateAppointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              success: false,
+              message: "Error updating your appoinment",
+              error: error
+          }
+      )
+
+  }
+}
+
+export const showAppointments = async (req: Request, res: Response) => {
+  try {
+      const userId = req.tokenData.id;
+
+      const Appointment = await appointment.find(
+          {
+              select: {
+                  id: true,
+                  appointmentDate: true,
+                  client: {
+                      id: true,
+                      firstName:true,
+                      email: true
+                  },
+                  artist: {
+                    id: true,
+                    firstName:true,
+                    email: true
+                },
+                  service: {
+                      serviceName: true
+                  },
+              },
+              where:
+              {
+                clientId:userId
+              },
+
+              relations: { client: {}, artist:{}, service: {} }
+          }
+      );
+
+    return res.status(200).json(
+          {
+              success: true,
+              message: "User appointments retrived successfully!",
+              data: Appointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              susscess: false,
+              message: "User appointments cannot be retrived!",
+              error: error
+          }
+      )
+  }
+}
+
+export const findAppointmendById = async (req: Request, res: Response) => {
+  try {
+      const appointmentId = req.params.id;
+      const clientId = req.tokenData.id;
+
+      const Appointment = await appointment.findOne(
+          {
+            select: {
+              id: true,
+              appointmentDate: true,
+              client: {
+                  id: true,
+                  firstName:true,
+                  email: true
+              },
+              artist: {
+                id: true,
+                firstName:true,
+                email: true
+            },
+              service: {
+                  serviceName: true
+              },
+          },
+              where: {
+                  client: { id: clientId },
+                  id: parseInt(appointmentId)
+              },
+              relations: { client: {}, artist:{}, service: {} }
+          }
+      )
+
+      if (!appointmentId) {
+          return res.status(404).json(
+              {
+                  success: false,
+                  message: "Appointment not found!"
+              }
+          )
+      }
+
+      res.json(
+          {
+              success: true,
+              message: "Appointment retrived successfully!",
+              data: Appointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              success: false,
+              message: "Error finding appointment",
+              error: error
+          }
+      )
+
+  }
+}

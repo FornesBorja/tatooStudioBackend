@@ -1,0 +1,203 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Tattoo Studio",
+    "collectionId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+    "dateExported": "2024-07-13T11:55:19.364Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "6ac1487b-ae3c-4aa8-8163-07b31eeb8cc9",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-07-13T08:19:09.785Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "98111f9d-aa60-4dc7-b654-c95ccdcef270",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-07-13T08:19:21.490Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "a1868293-da9a-4e93-abd9-5d49d847a114",
+            "name": "Appointments",
+            "containerId": "",
+            "created": "2024-07-13T08:19:34.916Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "0cefd428-7252-41f8-a152-e47d9675760d",
+            "name": "Services",
+            "containerId": "",
+            "created": "2024-07-13T08:19:46.264Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "58af1019-764c-4c7b-85a6-0d3212627fe2",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "6ac1487b-ae3c-4aa8-8163-07b31eeb8cc9",
+            "name": "Register user",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-07-13T08:18:57.490Z",
+            "modified": "2024-07-13T08:18:57.490Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\":\"Pepe\",\n  \"email\": \"pepe@pepe.com\",\n  \"password\": \"12345678\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "7b91e914-c3a0-4efa-9e26-6280febc2281",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "6ac1487b-ae3c-4aa8-8163-07b31eeb8cc9",
+            "name": "Login user",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-13T08:22:53.055Z",
+            "modified": "2024-07-13T10:52:33.749Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"maria.garcia@example.com\",\n  \"password\":\"Secure#567\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "832ed392-f838-47df-a9a4-d524fecce71f",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "98111f9d-aa60-4dc7-b654-c95ccdcef270",
+            "name": "Get all users (super_admin)",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/users",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-07-13T08:24:47.973Z",
+            "modified": "2024-07-13T08:24:47.973Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoicGVwZUBwZXBlLmNvbSIsImlhdCI6MTcyMDg1ODk1MSwiZXhwIjoxNzIwODY2MTUxfQ.lYQ6vjZAvRuidOk7NpIbSfCWgs3FPJ_qS9qOwGEYBV4"
+            }
+        },
+        {
+            "_id": "7e49b3d5-2249-4bbe-b092-db5e4215cc7d",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "98111f9d-aa60-4dc7-b654-c95ccdcef270",
+            "name": "Get user profile",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/users/profile",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-07-13T08:56:35.970Z",
+            "modified": "2024-07-13T08:56:35.970Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4NTk3NzcsImV4cCI6MTcyMDg2Njk3N30.7KdWiks41iqYRCY3lt_axaAaTDvmmQCA-lGXQzI-u30"
+            }
+        },
+        {
+            "_id": "27a2d20e-7151-4d8c-9f34-c910074e436a",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "98111f9d-aa60-4dc7-b654-c95ccdcef270",
+            "name": "Update my profile",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/users/profile",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-07-13T08:58:26.814Z",
+            "modified": "2024-07-13T08:58:26.814Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"lastName\":\"Fornes\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4NTk3NzcsImV4cCI6MTcyMDg2Njk3N30.7KdWiks41iqYRCY3lt_axaAaTDvmmQCA-lGXQzI-u30"
+            }
+        },
+        {
+            "_id": "890795b7-fc0a-4483-b36b-db09b2f9582d",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "a1868293-da9a-4e93-abd9-5d49d847a114",
+            "name": "Create appointment",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/appointments",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-07-13T10:59:00.874Z",
+            "modified": "2024-07-13T10:59:00.874Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"date\":\"27/07/2024\",\n  \"hour\": \"18:04\",\n  \"artistId\":8,\n  \"serviceId\":2\n  \n  \n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4Njc5NjksImV4cCI6MTcyMDg3NTE2OX0.2x3YkWTXjU8HPF9ekxIqBlFsXaCby3QjxuLaawS1Nao"
+            }
+        },
+        {
+            "_id": "48b02cfd-c0c4-4e2f-bc77-2c375ef161ca",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "a1868293-da9a-4e93-abd9-5d49d847a114",
+            "name": "Update appointment",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/appointments",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2024-07-13T11:19:57.895Z",
+            "modified": "2024-07-13T11:40:42.721Z",
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":6,\n  \"serviceId\":1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4Njc5NjksImV4cCI6MTcyMDg3NTE2OX0.2x3YkWTXjU8HPF9ekxIqBlFsXaCby3QjxuLaawS1Nao"
+            }
+        },
+        {
+            "_id": "a95a252a-0d53-41c6-b3d4-be78e9a8d645",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "0cefd428-7252-41f8-a152-e47d9675760d",
+            "name": "Get all services",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/services",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-07-13T11:26:26.286Z",
+            "modified": "2024-07-13T11:26:26.286Z",
+            "headers": []
+        },
+        {
+            "_id": "d30d1b4a-78c7-4840-b275-b611babd820a",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "a1868293-da9a-4e93-abd9-5d49d847a114",
+            "name": "Get my appointments",
+            "url": "https://tattoo-studio-fornesb.zeabur.app//api/appointments/",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-07-13T11:50:45.323Z",
+            "modified": "2024-07-13T11:50:45.323Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4NzAyNTIsImV4cCI6MTcyMDg3NzQ1Mn0.tLivfvBAyoLF82iLishGOQ3yTN3XVvpKJfhXXi_i3jE"
+            }
+        }
+    ],
+    "ref": "5PiorIHkssoZRCBDwzZf59CQDAufAeUrKi7VStRJkuiR_zgLmLM3UPCTZAnveUnJJeKYY6xgLgtNvAdnnbJH3A"
+}
