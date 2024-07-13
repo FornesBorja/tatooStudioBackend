@@ -197,7 +197,7 @@ Tecnologías utilizadas:
         ```
       Id of the appointment is mandatory, the other options are optional.
 
-- GET ALL APPOINTMENT
+- GET ALL APPOINTMENTS
 
     - A USER CAN SEE ALL THEIR APPOINTMENTS AND ITS INFO 
 
@@ -232,3 +232,15 @@ Tecnologías utilizadas:
       It will also show extra infor like your client (your own) and artist email, first name and service name
 
 </details>
+
+<details>
+<summary>Appointments</summary>
+
+- GET ALL SERVICES
+
+    - EVERYONE EVEN IF IT'S NOT LOGGED CAN RETRIEVE ALL SERVICES AND CONSULTING THEM
+
+        GET https://tattoo-studio-fornesb.zeabur.app/api/services
+
+</details>
+
