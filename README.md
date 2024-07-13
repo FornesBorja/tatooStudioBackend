@@ -168,6 +168,23 @@ Next we have the table users which is related to role and appointment. The relat
         
     This token is just an example, it doesn't work.
 
+- FILTER BY EMAIL
+
+    - ONLY ACCESSIBLE BY SUPER_ADMIN
+
+    GET https://tattoo-studio-fornesb.zeabur.app/api/users?email=ejemplo@ejemplo.com
+
+    Auth:
+
+    ``` bearer
+        {
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
+        }
+    ```
+        
+    This token is just an example, it doesn't work.
+
+
 </details>
 <details>
 <summary>Appointments</summary>

@@ -89,3 +89,36 @@ export const updateUserById = async (req: Request, res: Response) => {
     )
   }
 }
+
+//Extra endpoints
+export const filterUserByEmail = async (req: Request, res: Response) => {
+  try {
+    const emailQuery = String(req.query.email);
+ 
+
+    const userByEmail = await user.findOne(
+      {
+        where:{
+          email:emailQuery
+        }
+      }
+    )
+
+    return res.json(
+      {
+        success: true,
+        message: "User retrieved correctly",
+        data: userByEmail
+      }
+    )
+
+  } catch (error:any) {
+    res.status(500).json(
+      {
+        success: false, 
+        message: "Cant retrieve user",
+        error: error.message
+      }
+    )
+  }
+};
