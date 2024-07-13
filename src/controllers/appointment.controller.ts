@@ -151,11 +151,28 @@ export const findAppointmendById = async (req: Request, res: Response) => {
 
       const Appointment = await appointment.findOne(
           {
+            select: {
+              id: true,
+              appointmentDate: true,
+              client: {
+                  id: true,
+                  firstName:true,
+                  email: true
+              },
+              artist: {
+                id: true,
+                firstName:true,
+                email: true
+            },
+              service: {
+                  serviceName: true
+              },
+          },
               where: {
                   client: { id: clientId },
                   id: parseInt(appointmentId)
               },
-              relations: { service: {} }
+              relations: { client: {}, artist:{}, service: {} }
           }
       )
 
