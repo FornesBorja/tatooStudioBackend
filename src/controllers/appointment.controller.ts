@@ -93,3 +93,51 @@ export const updateAppointment = async (req: Request, res: Response) => {
   }
 }
 
+export const showAppointments = async (req: Request, res: Response) => {
+  try {
+      const userId = req.tokenData.id;
+
+      const Appointment = await appointment.find(
+          {
+              select: {
+                  id: true,
+                  appointmentDate: true,
+                  client: {
+                      id: true,
+                      email: true
+                  },
+                  artist: {
+                    id: true,
+                    email: true
+                },
+                  service: {
+                      serviceName: true
+                  },
+              },
+              where:
+              {
+                clientId:userId
+              },
+
+              relations: { client: {}, artist:{}, service: {} }
+          }
+      );
+
+    return res.status(200).json(
+          {
+              success: true,
+              message: "User appointments retrived successfully!",
+              data: Appointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              susscess: false,
+              message: "User appointments cannot be retrived!",
+              error: error
+          }
+      )
+  }
+}
