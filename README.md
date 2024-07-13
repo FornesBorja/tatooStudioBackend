@@ -41,13 +41,14 @@ Tecnologías utilizadas:
 ![DB-Scheme](https://i.gyazo.com/23a7d15f2b357f69496a483f997c4432.png)
 
 ## Local installation
-1. Clone the repository
-2. ` $ npm i `
-3. Conectamos nuestro repositorio con la base de datos 
-4. ``` $ Ejecutamos las migraciones ``` 
-5. ``` $ Ejecutamos los seeders ``` 
-6. ``` $ npm run dev ``` 
-7. ...
+1. Clone the repository ``` git clone https://github.com/FornesBorja/tatooStudioBackend.git```
+2. Open the folder
+3. ` $ npm i `
+4. Conectamos nuestro repositorio con la base de datos 
+5. ``` $ Ejecutamos las migraciones ``` 
+6. ``` $ Ejecutamos los seeders ``` 
+7. ``` $ npm run dev ``` 
+8. ...
 
 ## Endpoints
 
