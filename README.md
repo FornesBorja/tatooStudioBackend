@@ -142,13 +142,14 @@ Tecnologías utilizadas:
     This token is just an example, it doesn't work.
 
 </details>
+<details>
 <summary>Appointments</summary>
 
 - CREATE APPOINTMENT
 
-    - A USER CAN 
+    - A USER CAN CREATE AN APPOINTMENT 
 
-        POST https://tattoo-studio-fornesb.zeabur.app/api/users
+        POST https://tattoo-studio-fornesb.zeabur.app/api/appointments
 
     Auth:
 
@@ -170,5 +171,63 @@ Tecnologías utilizadas:
        You will get an error if the entered date is earlier than the current date or if the artistId is not role 1 or 2 (super_admin or artist) or if theres already booked
        an appointment for that artist and a certain time.
 
+- UPDATE APPOINTMENT
+
+    - A USER CAN UPDATE THEIR APPOINTMENT 
+
+        PUT https://tattoo-studio-fornesb.zeabur.app/api/appointments
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+            This token is just an example, it doesn't work.
+
+    Auth:
+
+        ``` json
+            {
+                "id":6,
+                "serviceId":1
+            }
+        ```
+      Id of the appointment is mandatory, the other options are optional.
+
+- GET ALL APPOINTMENT
+
+    - A USER CAN SEE ALL THEIR APPOINTMENTS AND ITS INFO 
+
+        GET https://tattoo-studio-fornesb.zeabur.app/api/appointments
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+            This token is just an example, it doesn't work.
+
+      It will also show extra infor like your client (your own) and artist email, first name and service name
+
+- GET APPOINTMENT BY ID
+
+    - A USER CAN SEE AN APPOINTMENT AND ITS INFO BY THE ID THEY PICKED
+
+        GET https://tattoo-studio-fornesb.zeabur.app/api/appointments/6
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+            This token is just an example, it doesn't work. The 6 in the endpoint is just an example of id, you can put the id you want your user have access to.
+
+      It will also show extra infor like your client (your own) and artist email, first name and service name
 
 </details>
