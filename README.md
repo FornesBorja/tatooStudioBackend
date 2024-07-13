@@ -1,53 +1,78 @@
-# Welcome to my backend app
+# Tattoo Studio
 
+Welcome to my 4th project for GeeksHub Academy and my first backend project.
+
+<div align="center">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXVuaTh1NDJiZnR0ZWpsd2xqdWQxc3NzenI1cTB6cTVsb3dnNGJqNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YlRe5qv47jKQlMloSd/giphy.webp" alt="LineInk Tattoo Studio" />
+</div>
+<br/>
 <details>
   <summary>Summary 📝</summary>
   <ol>
-    <li><a href="#Objective">Objective</a></li>
+    <li><a href="#objective">Objective</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#deploy">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#DB-Scheme">DB Scheme</a></li>
+    <li><a href="#db-scheme">DB Scheme</a></li>
     <li><a href="#local-installation">Installation</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
+    <li><a href="#futures-functionalities-and-things-to-improve">Futures functionalities and things to improve</a></li>
+    <li><a href="#author">Author</a></li>
   </ol>
 </details>
 
-## objective
-Este proyecto requería una API funcional conectada a una base de datos con al menos una relación de uno a muchos y una relación de muchos a muchos.
+## Objective
+This project required a functional API connected to a database with at least a one-to-many relationship and a many-to-many relationship.
 
 ## About
-Decidí crear una aplicación web para ayudar a los amantes del gimnasio, que les permitiría crear y realizar un seguimiento de nuevas rutinas para sus ejercicios diarios. He visto muchas apps de este estilo pero ninguna que nos permita cambiar tan libremente las rutinas adaptandolas a nuestras necesidades.    
 
+
+## Deploy
+<div align="center">
+    🚀<a href="https://tattoo-studio-fornesb.zeabur.app/healthy"><strong> Click here to check the status of the deploy! </strong></a>🚀
+</div>
 
 ## Stack
-Tecnologías utilizadas:
 <div align="center">
-<a href="https://www.mongodb.com/">
-    <img src= "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
-</a>
 <a href="https://www.expressjs.com/">
     <img src= "https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
 </a>
+<a href="https://typescriptlang.org">
+     <img src= "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+</a>    
 <a href="https://nodejs.org/es/">
     <img src= "https://img.shields.io/badge/node.js-026E00?style=for-the-badge&logo=node.js&logoColor=white"/>
 </a>
-<a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
-    <img src= "https://img.shields.io/badge/javascipt-EFD81D?style=for-the-badge&logo=javascript&logoColor=black"/>
+
+<a href="">
+    <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+</a>
+<a href="">
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+</a>
+<a href="">
+    <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT" />
+</a>
+<a href="">
+    <img src="https://img.shields.io/badge/bcrypt-3178C6?style=for-the-badge&" alt="TypeScript" />
 </a>
  </div>
 
-
 ## DB Scheme
-![DB-Scheme](https://i.gyazo.com/23a7d15f2b357f69496a483f997c4432.png)
+![DB-Scheme](https://i.gyazo.com/86ef26ffb118c2f5bb476ef7b07411f8.png)
+As tables that dont depend of others we've got service, that is just a table with the id, name of service an a description of the service we offer and role that show the id of the role and the name of that role.
+Next we have the table users which is related to role and appointment. The relation consist in every user has a role, which currently can be super_admin, artist or user (the default one). <br/>
+
 
 ## Local installation
-1. Clone the repository
-2. ` $ npm i `
-3. Conectamos nuestro repositorio con la base de datos 
-4. ``` $ Ejecutamos las migraciones ``` 
-5. ``` $ Ejecutamos los seeders ``` 
-6. ``` $ npm run dev ``` 
-7. ...
+1. Clone the repository ``` git clone https://github.com/FornesBorja/tatooStudioBackend.git```
+2. Open the folder
+3. ` $ npm i `
+4. Copy the .env.example file, change the name of the copy to .env.
+5. Write the .env file with your server parameters, to make the server work.
+6. ``` $ npm run migrate ``` 
+7. ``` $ npm run seeders ``` 
+8. ``` $ npm run dev ``` 
 
 ## Endpoints
 
@@ -62,7 +87,7 @@ Tecnologías utilizadas:
 
         Body:
 
-        ``` js
+        ``` json
             {
                 "firstName":"Pepe",
                 "email":"pepe@pepe.com",
@@ -76,7 +101,7 @@ Tecnologías utilizadas:
         POST http://localhost:4000/api/auth/login
 
         Body:
-        ``` js
+        ``` json
             {
                 "email":"juan.perez@example.com",
                 "password":"Pass1234!"
@@ -99,7 +124,8 @@ Tecnologías utilizadas:
                 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
             }
         ```
-        This token is just an example, it doesn't work.
+        
+    This token is just an example, it doesn't work.
 
 - GET USER PROFILE
 
@@ -113,7 +139,8 @@ Tecnologías utilizadas:
                 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
             }
         ```
-        This token is just an example, it doesn't work.
+
+    This token is just an example, it doesn't work.
 
 - EDIT USER PROFILE
 
@@ -142,3 +169,118 @@ Tecnologías utilizadas:
     This token is just an example, it doesn't work.
 
 </details>
+<details>
+<summary>Appointments</summary>
+
+- CREATE APPOINTMENT
+
+    - A USER CAN CREATE AN APPOINTMENT 
+
+        POST https://tattoo-studio-fornesb.zeabur.app/api/appointments
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+    Auth:
+
+        ``` json
+            {
+                  "date":"27/07/2024",
+                   "hour": "18:04",
+                   "artistId":8,
+                   "serviceId":2
+            }
+        ```
+
+    You will get an error if the entered date is earlier than the current date or if the artistId is not role 1 or 2 (super_admin or artist) or if theres already booked an appointment for that artist and a certain time.
+
+- UPDATE APPOINTMENT
+
+    - A USER CAN UPDATE THEIR APPOINTMENT 
+
+        PUT https://tattoo-studio-fornesb.zeabur.app/api/appointments
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+
+    This token is just an example, it doesn't work.
+
+    Auth:
+
+        ``` json
+            {
+                "id":6,
+                "serviceId":1
+            }
+        ```
+
+    Id of the appointment is mandatory, the other options are optional.
+
+- GET ALL APPOINTMENTS
+
+    - A USER CAN SEE ALL THEIR APPOINTMENTS AND ITS INFO 
+
+        GET https://tattoo-studio-fornesb.zeabur.app/api/appointments
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+
+        This token is just an example, it doesn't work.
+
+      It will also show extra infor like your client (your own) and artist email, first name and service name
+
+- GET APPOINTMENT BY ID
+
+    - A USER CAN SEE AN APPOINTMENT AND ITS INFO BY THE ID THEY PICKED
+
+        GET https://tattoo-studio-fornesb.zeabur.app/api/appointments/6
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+
+    This token is just an example, it doesn't work. The 6 in the endpoint is just an example of id, you can put the id you want your user have access to.
+
+    It will also show extra infor like your client (your own) and artist email, first name and service name
+
+</details>
+
+<details>
+<summary>Services</summary>
+
+- GET ALL SERVICES
+
+    - EVERYONE EVEN IF IT'S NOT LOGGED CAN RETRIEVE ALL SERVICES AND CONSULTING THEM
+
+        GET https://tattoo-studio-fornesb.zeabur.app/api/services
+
+</details>
+
+## Futures functionalities and things to improve
+🔲 More endpoints with more features<br/> 
+🔲 Being able to choose your artist<br/> 
+✅ Appointment date validation, preventing scheduling of appointments with dates earlier than the current date <br/> 
+
+
+## Author
+
+- Esperanza Fornes - student Full Stack Developer Web
+  - [GitHub](https://github.com/fornesborja)
