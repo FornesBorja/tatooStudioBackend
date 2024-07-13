@@ -93,3 +93,114 @@ export const updateAppointment = async (req: Request, res: Response) => {
   }
 }
 
+export const showAppointments = async (req: Request, res: Response) => {
+  try {
+      const userId = req.tokenData.id;
+
+      const Appointment = await appointment.find(
+          {
+              select: {
+                  id: true,
+                  appointmentDate: true,
+                  client: {
+                      id: true,
+                      firstName:true,
+                      email: true
+                  },
+                  artist: {
+                    id: true,
+                    firstName:true,
+                    email: true
+                },
+                  service: {
+                      serviceName: true
+                  },
+              },
+              where:
+              {
+                clientId:userId
+              },
+
+              relations: { client: {}, artist:{}, service: {} }
+          }
+      );
+
+    return res.status(200).json(
+          {
+              success: true,
+              message: "User appointments retrived successfully!",
+              data: Appointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              susscess: false,
+              message: "User appointments cannot be retrived!",
+              error: error
+          }
+      )
+  }
+}
+
+export const findAppointmendById = async (req: Request, res: Response) => {
+  try {
+      const appointmentId = req.params.id;
+      const clientId = req.tokenData.id;
+
+      const Appointment = await appointment.findOne(
+          {
+            select: {
+              id: true,
+              appointmentDate: true,
+              client: {
+                  id: true,
+                  firstName:true,
+                  email: true
+              },
+              artist: {
+                id: true,
+                firstName:true,
+                email: true
+            },
+              service: {
+                  serviceName: true
+              },
+          },
+              where: {
+                  client: { id: clientId },
+                  id: parseInt(appointmentId)
+              },
+              relations: { client: {}, artist:{}, service: {} }
+          }
+      )
+
+      if (!appointmentId) {
+          return res.status(404).json(
+              {
+                  success: false,
+                  message: "Appointment not found!"
+              }
+          )
+      }
+
+      res.json(
+          {
+              success: true,
+              message: "Appointment retrived successfully!",
+              data: Appointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              success: false,
+              message: "Error finding appointment",
+              error: error
+          }
+      )
+
+  }
+}

@@ -5,7 +5,7 @@ import { login, register } from "./controllers/auth.controller";
 import { auth } from "./middleware/auth";
 import { isSuperAdmin } from "./middleware/isSuperAdmin";
 import { getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
-import { createAppointment, updateAppointment} from "./controllers/appointment.controller";
+import { createAppointment, findAppointmendById, showAppointments, updateAppointment} from "./controllers/appointment.controller";
 
 const app = express();
 app.use(express.json());
@@ -24,6 +24,8 @@ app.put("/api/users/profile",auth, updateUserById)
 //Appointments
 app.post('/api/appointments',auth, createAppointment)
 app.put('/api/appointments', auth, updateAppointment)        
+app.get('/api/appointments', auth, showAppointments)        
+app.get('/api/appointments/:id', auth, findAppointmendById)
 
 //Services
 app.get("/api/services", getAllServices)
