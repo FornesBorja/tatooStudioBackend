@@ -1,9 +1,9 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { service } from "./service";
-import { user } from "./user";
+import { BaseEntity, BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { service } from "./service"; 
+import { user } from "./user";      
 
 @Entity("appointment")
-export class Appointment extends BaseEntity {
+export class appointment extends BaseEntity {
     
     @PrimaryGeneratedColumn()
     id!: number;
@@ -28,7 +28,35 @@ export class Appointment extends BaseEntity {
     @JoinColumn({ name: "artist_id" })
     artist!: user;
 
-    @ManyToOne(() =>service, (service: { appointments: any; }) => service.appointments)
+    @ManyToOne(() => service, (service: { appointments: any; }) => service.appointments)
     @JoinColumn({ name: "service_id" })
     service!: service;
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    async validate() {
+        if (!this.appointmentDate) {
+            throw new Error("Appointment date is required");
+        }
+        
+        const currentDate = new Date();
+        if (this.appointmentDate < currentDate) {
+            throw new Error("Appointment date cannot be in the past");
+        }
+        
+        const client = await user.findOne({ where: { id: this.clientId } });
+        if (!client) {
+            throw new Error("Client not found");
+        }
+
+        const artist = await user.findOne({ where: { id: this.artistId } });
+        
+        if (!artist) {
+            throw new Error("Artist not found");
+        }
+
+        if (![1, 2].includes(artist.roleId)) {
+            throw new Error("Artist must have artist or super_admin role");
+        }
+    }
 }
