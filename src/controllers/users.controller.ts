@@ -29,13 +29,19 @@ export const getUserProfile = async(req: Request, res: Response) => {
   try {
     const userId = req.tokenData.id;
 
-    const thisUser = await user.findOne(
-      {
-        where: {
-          id: userId
-        }
+    const thisUser = await user.findOne({
+      select: {
+        id:true,
+        firstName: true,
+        lastName: true,
+        email:true,
+        roleId:true
+      },
+      where: {
+        id: userId
       }
-    ) 
+    });
+    
 
     res.json(
       {

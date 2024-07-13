@@ -46,7 +46,7 @@ export const createAppointment = async(req: Request, res: Response) => {
     }
 }
 
-export const updateMyAppointment = async (req: Request, res: Response) => {
+export const updateAppointment = async (req: Request, res: Response) => {
   try {
       const clientId = req.tokenData.id;
       const appointmentID = req.body.id;
