@@ -58,5 +58,12 @@ export class appointment extends BaseEntity {
         if (![1, 2].includes(artist.roleId)) {
             throw new Error("Artist must have artist or super_admin role");
         }
+        const existingAppointment = await appointment.findOne({
+            where: { artistId: this.artistId, appointmentDate: this.appointmentDate }
+        });
+
+        if (existingAppointment) {
+            throw new Error("The artist is already booked for the selected date and time");
+        }
     }
 }

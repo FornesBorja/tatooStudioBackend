@@ -62,7 +62,7 @@ Tecnologías utilizadas:
 
         Body:
 
-        ``` js
+        ``` json
             {
                 "firstName":"Pepe",
                 "email":"pepe@pepe.com",
@@ -76,7 +76,7 @@ Tecnologías utilizadas:
         POST http://localhost:4000/api/auth/login
 
         Body:
-        ``` js
+        ``` json
             {
                 "email":"juan.perez@example.com",
                 "password":"Pass1234!"
@@ -140,5 +140,35 @@ Tecnologías utilizadas:
     ```
         
     This token is just an example, it doesn't work.
+
+</details>
+<summary>Appointments</summary>
+
+- CREATE APPOINTMENT
+
+    - A USER CAN 
+
+        POST https://tattoo-studio-fornesb.zeabur.app/api/users
+
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+    Auth:
+
+        ``` json
+            {
+                  "date":"27/07/2024",
+                   "hour": "18:04",
+                   "artistId":8,
+                   "serviceId":2
+            }
+        ```
+       You will get an error if the entered date is earlier than the current date or if the artistId is not role 1 or 2 (super_admin or artist) or if theres already booked
+       an appointment for that artist and a certain time.
+
 
 </details>
