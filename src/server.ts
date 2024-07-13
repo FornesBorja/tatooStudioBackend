@@ -5,7 +5,7 @@ import { login, register } from "./controllers/auth.controller";
 import { auth } from "./middleware/auth";
 import { isSuperAdmin } from "./middleware/isSuperAdmin";
 import { getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
-import { createAppointment } from "./controllers/appointment.controller";
+import { createAppointment} from "./controllers/appointment.controller";
 
 const app = express();
 app.use(express.json());

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Appointment } from "../database/models/appointment";
+import { appointment } from "../database/models/appointment";
 
 export const createAppointment = async(req: Request, res: Response) => {
     try {
@@ -19,7 +19,7 @@ export const createAppointment = async(req: Request, res: Response) => {
       
       const formatDate=new Date(year, month - 1, day,hours,minute)
 
-      const newAppointment = await Appointment.create(
+      const newAppointment = await appointment.create(
         {
           clientId,
           appointmentDate: formatDate,
@@ -45,3 +45,4 @@ export const createAppointment = async(req: Request, res: Response) => {
       )
     }
   }
+
