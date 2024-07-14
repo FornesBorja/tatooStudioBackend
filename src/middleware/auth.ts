@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from 'jsonwebtoken'
-import { TokenDecoded } from "../types";
+import { TokenDecoded } from "../types/index";
 
 export const auth = (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -18,10 +18,9 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
     
     req.tokenData = {
       id: decoded.id,
-      role: decoded.role,
+      roleId: decoded.roleId,
       email: decoded.email
     }
-
     next();
   } catch (error) {
     res.status(500).json(

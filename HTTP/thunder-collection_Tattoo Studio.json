@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Tattoo Studio",
     "collectionId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
-    "dateExported": "2024-07-13T11:55:19.364Z",
+    "dateExported": "2024-07-14T00:09:54.737Z",
     "version": "1.2",
     "folders": [
         {
@@ -32,6 +32,20 @@
             "containerId": "",
             "created": "2024-07-13T08:19:46.264Z",
             "sortNum": 40000
+        },
+        {
+            "_id": "6995fd23-388e-4939-99e4-9637503c51ca",
+            "name": "Extra endpoints user",
+            "containerId": "98111f9d-aa60-4dc7-b654-c95ccdcef270",
+            "created": "2024-07-13T20:02:43.059Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "adb0e476-56db-4efa-8dbf-15d23ec68f66",
+            "name": "Other",
+            "containerId": "6ac1487b-ae3c-4aa8-8163-07b31eeb8cc9",
+            "created": "2024-07-13T22:32:15.297Z",
+            "sortNum": 60000
         }
     ],
     "requests": [
@@ -49,6 +63,23 @@
             "body": {
                 "type": "json",
                 "raw": "{\n  \"firstName\":\"Pepe\",\n  \"email\": \"pepe@pepe.com\",\n  \"password\": \"12345678\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b419421d-f8ef-4cd3-84ec-fb7b41fc6bc8",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "adb0e476-56db-4efa-8dbf-15d23ec68f66",
+            "name": "Login user (admin)",
+            "url": "tattoo-studio-fornesb.zeabur.app/api/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-07-13T22:31:55.867Z",
+            "modified": "2024-07-14T00:04:19.921Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": " {\n   \"email\":\"jorge.rodriguez@example.com\",\n   \"password\": \"Sunshine#45\"\n }",
                 "form": []
             }
         },
@@ -78,11 +109,11 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-07-13T08:24:47.973Z",
-            "modified": "2024-07-13T08:24:47.973Z",
+            "modified": "2024-07-13T22:59:17.893Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImVtYWlsIjoicGVwZUBwZXBlLmNvbSIsImlhdCI6MTcyMDg1ODk1MSwiZXhwIjoxNzIwODY2MTUxfQ.lYQ6vjZAvRuidOk7NpIbSfCWgs3FPJ_qS9qOwGEYBV4"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MTEzNTMsImV4cCI6MTcyMDkxODU1M30.gJWyL5U2pGr2UUAowxuzl112k1zKtsM7eleABwTFevw"
             }
         },
         {
@@ -94,11 +125,11 @@
             "method": "GET",
             "sortNum": 40000,
             "created": "2024-07-13T08:56:35.970Z",
-            "modified": "2024-07-13T08:56:35.970Z",
+            "modified": "2024-07-13T23:41:41.621Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4NTk3NzcsImV4cCI6MTcyMDg2Njk3N30.7KdWiks41iqYRCY3lt_axaAaTDvmmQCA-lGXQzI-u30"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MTMwMzcsImV4cCI6MTcyMDkyMDIzN30.yU1Vagip1WPJaQH1gkNrmzqz0w4xp6XL5_7I4sjj3fM"
             }
         },
         {
@@ -131,16 +162,16 @@
             "method": "POST",
             "sortNum": 60000,
             "created": "2024-07-13T10:59:00.874Z",
-            "modified": "2024-07-13T10:59:00.874Z",
+            "modified": "2024-07-13T20:00:27.163Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"date\":\"27/07/2024\",\n  \"hour\": \"18:04\",\n  \"artistId\":8,\n  \"serviceId\":2\n  \n  \n}",
+                "raw": "{\n  \"date\":\"27/07/2024\",\n  \"hour\": \"16:04\",\n  \"artistId\":8,\n  \"serviceId\":1\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4Njc5NjksImV4cCI6MTcyMDg3NTE2OX0.2x3YkWTXjU8HPF9ekxIqBlFsXaCby3QjxuLaawS1Nao"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MDA2NDYsImV4cCI6MTcyMDkwNzg0Nn0.njRzvlr1BcUsSXSmFMZvpGCokCoByKQPU3ZwXScYwtk"
             }
         },
         {
@@ -149,10 +180,10 @@
             "containerId": "a1868293-da9a-4e93-abd9-5d49d847a114",
             "name": "Update appointment",
             "url": "https://tattoo-studio-fornesb.zeabur.app/api/appointments",
-            "method": "PUT",
+            "method": "GET",
             "sortNum": 70000,
             "created": "2024-07-13T11:19:57.895Z",
-            "modified": "2024-07-13T11:40:42.721Z",
+            "modified": "2024-07-13T15:17:25.151Z",
             "headers": [
                 {
                     "name": "User-Agent",
@@ -160,14 +191,9 @@
                     "isDisabled": true
                 }
             ],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"id\":6,\n  \"serviceId\":1\n}",
-                "form": []
-            },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4Njc5NjksImV4cCI6MTcyMDg3NTE2OX0.2x3YkWTXjU8HPF9ekxIqBlFsXaCby3QjxuLaawS1Nao"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s"
             }
         },
         {
@@ -197,7 +223,46 @@
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4NzAyNTIsImV4cCI6MTcyMDg3NzQ1Mn0.tLivfvBAyoLF82iLishGOQ3yTN3XVvpKJfhXXi_i3jE"
             }
+        },
+        {
+            "_id": "01ab45f2-e304-4ed5-b0e9-68e64fd15a30",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "a1868293-da9a-4e93-abd9-5d49d847a114",
+            "name": "Find appointment by ID",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/appointments/8",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-07-13T12:09:17.150Z",
+            "modified": "2024-07-13T20:01:38.972Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MDA2NDYsImV4cCI6MTcyMDkwNzg0Nn0.njRzvlr1BcUsSXSmFMZvpGCokCoByKQPU3ZwXScYwtk"
+            }
+        },
+        {
+            "_id": "c2b93ec3-7b23-4177-be40-090b23cb8821",
+            "colId": "fc3eac06-5104-4d63-b6e9-7a510093fb3d",
+            "containerId": "6995fd23-388e-4939-99e4-9637503c51ca",
+            "name": "Filter by email",
+            "url": "https://tattoo-studio-fornesb.zeabur.app/api/users?email=elena.flores@example.com",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-07-13T23:27:01.302Z",
+            "modified": "2024-07-14T00:09:21.540Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "email",
+                    "value": "elena.flores@example.com",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJlbWFpbCI6ImpvcmdlLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTcyMDkxNTQzNywiZXhwIjoxNzIwOTIyNjM3fQ.881usIJRTYdDoBEwi89OmyNjMv3wfaflpivOYniGPl0"
+            }
         }
     ],
-    "ref": "5PiorIHkssoZRCBDwzZf59CQDAufAeUrKi7VStRJkuiR_zgLmLM3UPCTZAnveUnJJeKYY6xgLgtNvAdnnbJH3A"
+    "ref": "5PiorIHkssoZRCBDwzZf5xy4A_r5eM7RoE2ZMDUY770cik7AuNeC-iJJ2eibUvfll6IQ7Mgw7ofEPpRFdFmf8A"
 }
