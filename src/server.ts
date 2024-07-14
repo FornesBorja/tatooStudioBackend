@@ -27,11 +27,13 @@ app.post("/api/auth/register", register)
 app.post("/api/auth/login", login)
 
 //Users
+app.get("/api/users", auth,isSuperAdmin, filterUserByEmail)
+
 app.get("/api/users", auth,isSuperAdmin, getAllUsers)
 app.get("/api/users/profile", auth, getUserProfile)
 app.put("/api/users/profile",auth, updateUserById)
 
-app.get("/api/users", auth,isSuperAdmin, filterUserByEmail)
+
 
 //Appointments
 app.post('/api/appointments',auth, createAppointment)

@@ -35,11 +35,14 @@ export const getUserProfile = async(req: Request, res: Response) => {
         firstName: true,
         lastName: true,
         email:true,
-        roleId:true
+        role:{
+          name:true
+        }
       },
       where: {
         id: userId
       }
+      , relations: { role: {}}
     });
     
 
@@ -98,9 +101,19 @@ export const filterUserByEmail = async (req: Request, res: Response) => {
 
     const userByEmail = await user.findOne(
       {
+        select:{
+          id: true,
+          firstName: true,
+          lastName: true,
+          email: true,
+          role:{
+            name:true,
+          }
+        },
         where:{
           email:emailQuery
-        }
+        },
+        relations: { role: {}}
       }
     )
 
