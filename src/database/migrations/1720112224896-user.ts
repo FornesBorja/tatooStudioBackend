@@ -48,6 +48,7 @@ export class User1720112224896 implements MigrationInterface {
             columnNames: ["role_id"],
             referencedTableName: "role",
             referencedColumnNames: ["id"],
+            onDelete: "cascade"
           },
         ],
       }),

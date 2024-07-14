@@ -36,11 +36,13 @@ export class Appointment1720113580950 implements MigrationInterface {
             columnNames: ["client_id"],
             referencedTableName: "user",
             referencedColumnNames: ["id"],
+            onDelete:"cascade"
           },
           {
             columnNames: ["artist_id"],
             referencedTableName: "user",
             referencedColumnNames: ["id"],
+            onDelete:"cascade"
           },
           {
             columnNames: ["service_id"],

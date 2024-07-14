@@ -4,9 +4,6 @@ import { role } from "./role"
 
 @Entity('user')
 export class user extends BaseEntity{
-    password(password: any, password1: any) {
-      throw new Error("Method not implemented.")
-    }
     @PrimaryGeneratedColumn()
     id!: number
 
@@ -29,9 +26,9 @@ export class user extends BaseEntity{
     @JoinColumn ({ name: "role_id"})
     role!: role;
     
-    @OneToMany(() => appointment, (appointment) => appointment.client)
+    @OneToMany(() => appointment, (appointment) => appointment.client , {onDelete: 'CASCADE' })
     clientAppointments!: appointment[];
 
-    @OneToMany(() => appointment, (appointment) => appointment.artist)
+    @OneToMany(() => appointment, (appointment) => appointment.artist, {onDelete: 'CASCADE' })
     artistAppointments!: appointment[];
 }

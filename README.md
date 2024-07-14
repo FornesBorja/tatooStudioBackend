@@ -165,7 +165,7 @@ Next we have the table users which is related to role and appointment. The relat
         
     This token is just an example, it doesn't work.
 
-- FILTER BY EMAIL
+- FILTER BY EMAIL (SUPER_ADMIN)
 
     - ONLY ACCESSIBLE BY SUPER_ADMIN
 
