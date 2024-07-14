@@ -165,3 +165,35 @@ export const deleteUser = async (req: Request, res: Response) => {
     )
   }
 }
+
+export const changeRoleUser = async (req: Request, res: Response) => {
+  try {
+    const { roleId } = req.body;
+    const userId = Number(req.params.id);
+
+    const userToUpdate = await user.findOne({ where: { id: userId } });
+
+    if (!userToUpdate) {
+    res.status(404).send({ message: 'User not found.' });
+    return;
+  }
+
+    userToUpdate.roleId = roleId;
+    const userRoleUpdate=await user.save(userToUpdate);
+      res.status(200).json(
+        {
+          success: true,
+          message: "User role updated successfully",
+          data: userRoleUpdate
+        }
+      )      
+  } catch (error:any) {
+    res.status(500).json(
+      {
+        success: false,
+        message: "User role cant be updated",
+        error: error.message
+      }
+    )
+  }
+}

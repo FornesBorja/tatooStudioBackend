@@ -4,7 +4,7 @@ import { getAllServices } from "./controllers/services.controller";
 import { login, register } from "./controllers/auth.controller";
 import { auth } from "./middleware/auth";
 import { isSuperAdmin } from "./middleware/isSuperAdmin";
-import { deleteUser, filterUserByEmail, getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
+import { changeRoleUser, deleteUser, filterUserByEmail, getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
 import { createAppointment, findAppointmendById, showAppointments, updateAppointment} from "./controllers/appointment.controller";
 
 const app = express();
@@ -29,6 +29,7 @@ app.post("/api/auth/login", login)
 //Users
 app.get("/api/users", auth, isSuperAdmin, filterUserByEmail)
 app.delete("/api/users/:id", auth, isSuperAdmin, deleteUser)
+app.put("/api/users/:id/role", auth, isSuperAdmin, changeRoleUser)
 
 app.get("/api/users", auth,isSuperAdmin, getAllUsers)
 app.get("/api/users/profile", auth, getUserProfile)
