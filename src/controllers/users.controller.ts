@@ -35,11 +35,14 @@ export const getUserProfile = async(req: Request, res: Response) => {
         firstName: true,
         lastName: true,
         email:true,
-        roleId:true
+        role:{
+          name:true
+        }
       },
       where: {
         id: userId
       }
+      , relations: { role: {}}
     });
     
 
@@ -89,3 +92,46 @@ export const updateUserById = async (req: Request, res: Response) => {
     )
   }
 }
+
+//Extra endpoints
+export const filterUserByEmail = async (req: Request, res: Response) => {
+  try {
+    const emailQuery = String(req.query.email);
+ 
+
+    const userByEmail = await user.findOne(
+      {
+        select:{
+          id: true,
+          firstName: true,
+          lastName: true,
+          email: true,
+          role:{
+            name:true,
+          }
+        },
+        where:{
+          email:emailQuery
+        },
+        relations: { role: {}}
+      }
+    )
+
+    return res.json(
+      {
+        success: true,
+        message: "User retrieved correctly",
+        data: userByEmail
+      }
+    )
+
+  } catch (error:any) {
+    res.status(500).json(
+      {
+        success: false, 
+        message: "Cant retrieve user",
+        error: error.message
+      }
+    )
+  }
+};

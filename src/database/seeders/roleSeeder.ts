@@ -5,13 +5,13 @@ const roleSeeder = async () => {
     try {
     await AppDataSource.initialize()
 
-    const tattoo_artist = new role();
-    tattoo_artist.name = "tattoo_artist";
-    await tattoo_artist.save()
-
     const super_admin = new role();
     super_admin.name = "super_admin";
     await super_admin.save()
+
+    const tattoo_artist = new role();
+    tattoo_artist.name = "tattoo_artist";
+    await tattoo_artist.save()
 
     const user = new role();
     user.name = "user";
