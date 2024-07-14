@@ -68,7 +68,7 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
 4. Copy the .env.example file, change the name of the copy to .env.
 5. Write the .env file with your server parameters, to make the server work.
 6. ``` $ npm run migrate ``` 
-7. ``` $ npm run seeders ``` 
+7. ``` $ npm run seed ``` 
 8. ``` $ npm run dev ``` 
 
 ## Endpoints
