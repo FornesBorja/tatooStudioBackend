@@ -10,7 +10,6 @@ Welcome to my 4th project for GeeksHub Academy and my first backend project.
   <summary>Summary 📝</summary>
   <ol>
     <li><a href="#objective">Objective</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#deploy">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#db-scheme">DB Scheme</a></li>
@@ -23,8 +22,6 @@ Welcome to my 4th project for GeeksHub Academy and my first backend project.
 
 ## Objective
 This project required a functional API connected to a database with at least a one-to-many relationship and a many-to-many relationship.
-
-## About
 
 
 ## Deploy
@@ -168,7 +165,7 @@ Next we have the table users which is related to role and appointment. The relat
         
     This token is just an example, it doesn't work.
 
-- FILTER BY EMAIL
+- FILTER BY EMAIL (SUPER_ADMIN)
 
     - ONLY ACCESSIBLE BY SUPER_ADMIN
 
@@ -294,7 +291,9 @@ Next we have the table users which is related to role and appointment. The relat
 ## Futures functionalities and things to improve
 🔲 More endpoints with more features<br/> 
 🔲 Being able to choose your artist<br/> 
-✅ Appointment date validation, preventing scheduling of appointments with dates earlier than the current date <br/> 
+✅ Appointment date validation, preventing scheduling of appointments with dates earlier than the current date <br/>
+🔲 Validations to make sure the integrity of the database<br/> 
+
 
 
 ## Author
