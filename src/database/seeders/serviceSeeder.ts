@@ -7,12 +7,12 @@ const serviceSeeder = async () => {
 
     const s1 = new service();
     s1.serviceName = "Tatoo";
-    s1.desciption="High-quality custom tattoos designed by talented artists."
+    s1.description="High-quality custom tattoos designed by talented artists."
     await s1.save()
 
     const s2 = new service();
     s2.serviceName = "Piercing";    
-    s2.desciption="It offers professional and safe piercing services performed by qualified experts."
+    s2.description="It offers professional and safe piercing services performed by qualified experts."
     await s2.save()
 
     console.log('===========================');

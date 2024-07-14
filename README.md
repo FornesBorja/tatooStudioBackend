@@ -59,7 +59,7 @@ This project required a functional API connected to a database with at least a o
 ![DB-Scheme](https://i.gyazo.com/86ef26ffb118c2f5bb476ef7b07411f8.png)
 As tables that dont depend of others we've got service, that is just a table with the id, name of service an a description of the service we offer and role that show the id of the role and the name of that role.
 Next we have the table users which is related to role and appointment. The relation consist in every user has a role, which currently can be super_admin, artist or user (the default one). <br/>
-
+Appointment table has two foreign key, both are from user_id, in client_id column we have users with role user or roleId 3 and in artist_id column just can be there user whose role are 1 or 2 (I'm assuming the owner of the shop or super_admin is also an artist).
 
 ## Local installation
 1. Clone the repository ``` git clone https://github.com/FornesBorja/tatooStudioBackend.git```
@@ -181,6 +181,49 @@ Next we have the table users which is related to role and appointment. The relat
         
     This token is just an example, it doesn't work.
 
+- DELETE USER (SUPER_ADMIN)
+
+    - ONLY ACCESSIBLE BY SUPER_ADMIN
+
+    DELETE https://tattoo-studio-fornesb.zeabur.app/api/users/1
+
+    Auth:
+
+    ``` bearer
+        {
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
+        }
+    ```
+        
+    This token is just an example, it doesn't work. <br/>
+    I added delete on cascade to make it work, if not it will throw an error because user_id is foreing key (2 times) in appointment table.
+
+- UPDATE USER ROLE(SUPER_ADMIN)
+
+    - ONLY ACCESSIBLE BY SUPER_ADMIN
+
+    PUT https://tattoo-studio-fornesb.zeabur.app/api/users/1/role
+
+    Auth:
+
+    ``` bearer
+        {
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJob2xhQGhvbGEuYWRpb3MiLCJpYXQiOjE3MjA1OTYyNzMsImV4cCI6MTcyMDYwMzQ3M30.QnL_HgGPVLOb0d4iUUuFCeSab1lp3SpOVV_js0T4ExY
+        }
+    ```
+        
+    This token is just an example, it doesn't work. <br/>
+
+    Body:
+
+    ``` json
+        {
+              "roleId": 2
+        }
+    ```
+
+    We have to just type the roleId we want, no other column will be update, just the role. 
+
 
 </details>
 <details>
@@ -286,15 +329,68 @@ Next we have the table users which is related to role and appointment. The relat
 
         GET https://tattoo-studio-fornesb.zeabur.app/api/services
 
+- CREATE SERVICES (SUPER_ADMIN)
+
+    - ONLY SUPER_ADMIN CAN CREATE A SERVICE
+
+        POST https://tattoo-studio-fornesb.zeabur.app/api/services
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+    Auth:
+
+        ``` json
+            {
+                "serviceName": "Printed ilustrations",
+                "description": "Printed illustrations of the designs that you can later tattoo"
+            }
+        ```
+
+- UPDATE SERVICES (SUPER_ADMIN)
+
+    - ONLY SUPER_ADMIN CAN UPDATE A SERVICE
+
+        PUT https://tattoo-studio-fornesb.zeabur.app/api/services/2
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+    Auth:
+
+        ``` json
+            {
+                "serviceName": "Piercing jewelry",
+                
+            }
+        ```
+
+- DELETE SERVICES (SUPER_ADMIN)
+
+    - ONLY SUPER_ADMIN CAN DELETE A SERVICE
+
+        DELETE https://tattoo-studio-fornesb.zeabur.app/api/services/2
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+
 </details>
 
 ## Futures functionalities and things to improve
-🔲 More endpoints with more features<br/> 
+✅ More endpoints with more features<br/> 
 🔲 Being able to choose your artist<br/> 
 ✅ Appointment date validation, preventing scheduling of appointments with dates earlier than the current date <br/>
-🔲 Validations to make sure the integrity of the database<br/> 
-
-
+✅ Validations to make sure the integrity of the database<br/>
 
 ## Author
 
