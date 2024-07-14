@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { user} from "../database/models/user";
+import { error } from "console";
 
 
 export const getAllUsers = async (req: Request, res: Response) => {
@@ -135,3 +136,64 @@ export const filterUserByEmail = async (req: Request, res: Response) => {
     )
   }
 };
+
+export const deleteUser = async (req: Request, res: Response) => {
+  try {
+    const userIdToDelete = Number(req.params.id)
+  
+    const userDeleted = await user.delete(userIdToDelete)
+
+    if(!userDeleted.affected) {
+      throw new Error("User doesn't exist");
+      
+    } 
+
+    return res.status(200).json(
+      {
+        success: true,
+        message: "User deleted successfully",
+        data: userDeleted
+      }
+    )
+  } catch (error) {
+    res.status(500).json(
+      {
+        success: false,
+        message: "Error deleting user",
+        error: error
+      }
+    )
+  }
+}
+
+export const changeRoleUser = async (req: Request, res: Response) => {
+  try {
+    const { roleId } = req.body;
+    const userId = Number(req.params.id);
+
+    const userToUpdate = await user.findOne({ where: { id: userId } });
+
+    if (!userToUpdate) {
+    res.status(404).send({ message: 'User not found.' });
+    return;
+  }
+
+    userToUpdate.roleId = roleId;
+    const userRoleUpdate=await user.save(userToUpdate);
+      res.status(200).json(
+        {
+          success: true,
+          message: "User role updated successfully",
+          data: userRoleUpdate
+        }
+      )      
+  } catch (error:any) {
+    res.status(500).json(
+      {
+        success: false,
+        message: "User role cant be updated",
+        error: error.message
+      }
+    )
+  }
+}

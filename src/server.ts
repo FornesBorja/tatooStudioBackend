@@ -1,10 +1,10 @@
 import express from "express";
 import { AppDataSource } from "./database/database";
-import { getAllServices } from "./controllers/services.controller";
+import { createService, deleteServiceById, getAllServices, updateServiceById } from "./controllers/services.controller";
 import { login, register } from "./controllers/auth.controller";
 import { auth } from "./middleware/auth";
 import { isSuperAdmin } from "./middleware/isSuperAdmin";
-import { filterUserByEmail, getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
+import { changeRoleUser, deleteUser, filterUserByEmail, getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
 import { createAppointment, findAppointmendById, showAppointments, updateAppointment} from "./controllers/appointment.controller";
 
 const app = express();
@@ -27,7 +27,9 @@ app.post("/api/auth/register", register)
 app.post("/api/auth/login", login)
 
 //Users
-app.get("/api/users", auth,isSuperAdmin, filterUserByEmail)
+app.get("/api/users", auth, isSuperAdmin, filterUserByEmail)
+app.delete("/api/users/:id", auth, isSuperAdmin, deleteUser)
+app.put("/api/users/:id/role", auth, isSuperAdmin, changeRoleUser)
 
 app.get("/api/users", auth,isSuperAdmin, getAllUsers)
 app.get("/api/users/profile", auth, getUserProfile)
@@ -43,6 +45,10 @@ app.get('/api/appointments/:id', auth, findAppointmendById)
 
 //Services
 app.get("/api/services", getAllServices)
+
+app.post("/api/services",auth, isSuperAdmin, createService)
+app.put("/api/services/:id",auth, isSuperAdmin, updateServiceById)
+app.delete("/api/services/:id",auth, isSuperAdmin, deleteServiceById)
 
 AppDataSource.initialize()
   .then(() => {
