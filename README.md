@@ -350,15 +350,47 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
             }
         ```
 
+- UPDATE SERVICES (SUPER_ADMIN)
+
+    - ONLY SUPER_ADMIN CAN UPDATE A SERVICE
+
+        PUT https://tattoo-studio-fornesb.zeabur.app/api/services/2
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+    Auth:
+
+        ``` json
+            {
+                "serviceName": "Piercing jewelry",
+                
+            }
+        ```
+
+- DELETE SERVICES (SUPER_ADMIN)
+
+    - ONLY SUPER_ADMIN CAN DELETE A SERVICE
+
+        DELETE https://tattoo-studio-fornesb.zeabur.app/api/services/2
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+
 </details>
 
 ## Futures functionalities and things to improve
-🔲 More endpoints with more features<br/> 
+✅ More endpoints with more features<br/> 
 🔲 Being able to choose your artist<br/> 
 ✅ Appointment date validation, preventing scheduling of appointments with dates earlier than the current date <br/>
-🔲 Validations to make sure the integrity of the database<br/> 
-
-
+✅ Validations to make sure the integrity of the database<br/>
 
 ## Author
 
