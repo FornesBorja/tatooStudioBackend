@@ -1,6 +1,6 @@
 import express from "express";
 import { AppDataSource } from "./database/database";
-import { getAllServices } from "./controllers/services.controller";
+import { createService, getAllServices } from "./controllers/services.controller";
 import { login, register } from "./controllers/auth.controller";
 import { auth } from "./middleware/auth";
 import { isSuperAdmin } from "./middleware/isSuperAdmin";
@@ -45,6 +45,8 @@ app.get('/api/appointments/:id', auth, findAppointmendById)
 
 //Services
 app.get("/api/services", getAllServices)
+
+app.post("/api/services",auth, isSuperAdmin, createService)
 
 AppDataSource.initialize()
   .then(() => {

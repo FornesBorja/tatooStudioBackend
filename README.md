@@ -329,6 +329,27 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
 
         GET https://tattoo-studio-fornesb.zeabur.app/api/services
 
+- CREATE SERVICES (SUPER_ADMIN)
+
+    - ONLY SUPER_ADMIN CAN CREATE A SERVICE
+
+        POST https://tattoo-studio-fornesb.zeabur.app/api/services
+    Auth:
+
+        ``` bearer
+            {
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
+            }
+        ```
+    Auth:
+
+        ``` json
+            {
+                "serviceName": "Printed ilustrations",
+                "description": "Printed illustrations of the designs that you can later tattoo"
+            }
+        ```
+
 </details>
 
 ## Futures functionalities and things to improve
