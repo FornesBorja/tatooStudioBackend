@@ -27,13 +27,13 @@ app.post("/api/auth/register", register)
 app.post("/api/auth/login", login)
 
 //Users
-app.get("/api/users", auth, isSuperAdmin, filterUserByEmail)
-app.delete("/api/users/:id", auth, isSuperAdmin, deleteUser)
-app.put("/api/users/:id/role", auth, isSuperAdmin, changeRoleUser)
-
-app.get("/api/users", auth,isSuperAdmin, getAllUsers)
+app.get("/api/users", auth, isSuperAdmin, getAllUsers)
 app.get("/api/users/profile", auth, getUserProfile)
 app.put("/api/users/profile",auth, updateUserById)
+
+app.delete("/api/users/:id", auth, isSuperAdmin, deleteUser)
+app.put("/api/users/:id/role", auth, isSuperAdmin, changeRoleUser)
+app.get("/api/users", auth, isSuperAdmin, filterUserByEmail)
 
 
 

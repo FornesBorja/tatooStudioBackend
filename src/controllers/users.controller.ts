@@ -4,16 +4,22 @@ import { user } from "../database/models/user";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const users = await user.find({
-      select: {
-        id: true,
-        email: true,
-      }
+    const allUsers = await user.findAndCount({
+      select:{
+        firstName:true,
+        lastName:true,
+        email:true,
+        role:{
+          name:true
+        }
+      },
+      relations: { role: {} }
     });
-    return res.json({
+    console.log(allUsers)  
+    res.json({
       success: true,
       message: "All users retrived successfully!",
-      data: users,
+      data: allUsers,
     });
   } catch (error) {
     res.status(500).json({
