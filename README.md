@@ -141,7 +141,7 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
 
 - EDIT USER PROFILE
 
-    - USER CAN EDIT ITS INFO
+    - USER CAN EDIT ITS ALL THEIR INFO EXCEPT ROLE. 
 
     PUT https://tattoo-studio-fornesb.zeabur.app/api/users/profile
 
@@ -242,7 +242,7 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
                 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
             }
         ```
-    Auth:
+    Body:
 
         ``` json
             {
@@ -271,7 +271,7 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
 
     This token is just an example, it doesn't work.
 
-    Auth:
+    Body:
 
         ``` json
             {
@@ -341,7 +341,7 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
                 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
             }
         ```
-    Auth:
+    Body:
 
         ``` json
             {
@@ -362,7 +362,7 @@ Appointment table has two foreign key, both are from user_id, in client_id colum
                 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s
             }
         ```
-    Auth:
+    Body:
 
         ``` json
             {

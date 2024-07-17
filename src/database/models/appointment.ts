@@ -55,7 +55,7 @@ export class appointment extends BaseEntity {
             throw new Error("Artist not found");
         }
 
-        if (![1, 2].includes(artist.roleId)) {
+        if (![Number(process.env.SUPER_ADMIN),Number(process.env.ARTIST)].includes(artist.roleId)) {
             throw new Error("Artist must have artist or super_admin role");
         }
         const existingAppointment = await appointment.findOne({
