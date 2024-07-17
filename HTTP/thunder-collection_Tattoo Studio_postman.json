@@ -1,0 +1,593 @@
+{
+    "info": {
+        "_postman_id": "1cd37560-72f4-4262-8297-2740b47078cf",
+        "name": "Tattoo Studio",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Other",
+                    "item": [
+                        {
+                            "name": "Login user (super_admin)",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "tattoo-studio-fornesb.zeabur.app/api/auth/login",
+                                    "path": [
+                                        "api",
+                                        "auth",
+                                        "login"
+                                    ],
+                                    "host": [
+                                        "tattoo-studio-fornesb",
+                                        "zeabur",
+                                        "app"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": " {\n   \"email\":\"jorge.rodriguez@example.com\",\n   \"password\": \"Sunshine#45\"\n }"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Register user",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/auth/register",
+                            "path": [
+                                "api",
+                                "auth",
+                                "register"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"firstName\":\"Pepe\",\n  \"email\": \"pepe@pepe.com\",\n  \"password\": \"12345678\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Login user",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/auth/login",
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\":\"maria.garcia@example.com\",\n  \"password\":\"Secure#567\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Extra endpoints user",
+                    "item": [
+                        {
+                            "name": "Filter by email (super_admin)",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "https://tattoo-studio-fornesb.zeabur.app/api/users?email=elena.flores@example.com",
+                                    "query": [
+                                        {
+                                            "key": "email",
+                                            "value": "elena.flores@example.com"
+                                        }
+                                    ],
+                                    "variable": [],
+                                    "path": [
+                                        "api",
+                                        "users"
+                                    ],
+                                    "protocol": "https",
+                                    "host": [
+                                        "tattoo-studio-fornesb",
+                                        "zeabur",
+                                        "app"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJlbWFpbCI6ImpvcmdlLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTcyMDkxNTQzNywiZXhwIjoxNzIwOTIyNjM3fQ.881usIJRTYdDoBEwi89OmyNjMv3wfaflpivOYniGPl0",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Delete user (super_admin)",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "https://tattoo-studio-fornesb.zeabur.app/api/users/1",
+                                    "path": [
+                                        "api",
+                                        "users",
+                                        "1"
+                                    ],
+                                    "protocol": "https",
+                                    "host": [
+                                        "tattoo-studio-fornesb",
+                                        "zeabur",
+                                        "app"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJlbWFpbCI6ImpvcmdlLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTcyMDk0MDIyNCwiZXhwIjoxNzIwOTQ3NDI0fQ.Uaqxk1yZyeEW8AzbDTRqdj_PYavSGiYvfCDgDLEOIBU",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Role update user (super_admin)",
+                            "request": {
+                                "method": "PUT",
+                                "url": {
+                                    "raw": "https://tattoo-studio-fornesb.zeabur.app/api/users/1/role",
+                                    "path": [
+                                        "api",
+                                        "users",
+                                        "1",
+                                        "role"
+                                    ],
+                                    "protocol": "https",
+                                    "host": [
+                                        "tattoo-studio-fornesb",
+                                        "zeabur",
+                                        "app"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"roleId\": 3\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJlbWFpbCI6ImpvcmdlLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTcyMDk0MzUxNSwiZXhwIjoxNzIwOTUwNzE1fQ.5uTQqQ7K4Ye8QYX88a0bGAFpRtXV-ff2q1R80faaIsg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get all users (super_admin)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/users",
+                            "path": [
+                                "api",
+                                "users"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MTEzNTMsImV4cCI6MTcyMDkxODU1M30.gJWyL5U2pGr2UUAowxuzl112k1zKtsM7eleABwTFevw",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get user profile",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/users/profile",
+                            "path": [
+                                "api",
+                                "users",
+                                "profile"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MTMwMzcsImV4cCI6MTcyMDkyMDIzN30.yU1Vagip1WPJaQH1gkNrmzqz0w4xp6XL5_7I4sjj3fM",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update my profile",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/users/profile",
+                            "path": [
+                                "api",
+                                "users",
+                                "profile"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"lastName\":\"Fornes\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb3JnZS5yb2RyaWd1ZXpAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4NTk3NzcsImV4cCI6MTcyMDg2Njk3N30.7KdWiks41iqYRCY3lt_axaAaTDvmmQCA-lGXQzI-u30",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Appointments",
+            "item": [
+                {
+                    "name": "Create appointment",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/appointments",
+                            "path": [
+                                "api",
+                                "appointments"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"date\":\"27/07/2024\",\n  \"hour\": \"16:04\",\n  \"artistId\":8,\n  \"serviceId\":1\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MDA2NDYsImV4cCI6MTcyMDkwNzg0Nn0.njRzvlr1BcUsSXSmFMZvpGCokCoByKQPU3ZwXScYwtk",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update appointment",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/appointments",
+                            "path": [
+                                "api",
+                                "appointments"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4ODI3MDQsImV4cCI6MTcyMDg4OTkwNH0.CiQ7BQoE6PEUOHkneg3GBEhe_QXbVc5lgkVQmK9La_s",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get my appointments",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app//api/appointments/",
+                            "path": [
+                                "api",
+                                "appointments"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA4NzAyNTIsImV4cCI6MTcyMDg3NzQ1Mn0.tLivfvBAyoLF82iLishGOQ3yTN3XVvpKJfhXXi_i3jE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Find appointment by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/appointments/8",
+                            "path": [
+                                "api",
+                                "appointments",
+                                "8"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYS5nYXJjaWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjA5MDA2NDYsImV4cCI6MTcyMDkwNzg0Nn0.njRzvlr1BcUsSXSmFMZvpGCokCoByKQPU3ZwXScYwtk",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Services",
+            "item": [
+                {
+                    "name": "Extra endpoints services",
+                    "item": [
+                        {
+                            "name": "Create service (super_admin)",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "https://tattoo-studio-fornesb.zeabur.app/api/services",
+                                    "path": [
+                                        "api",
+                                        "services"
+                                    ],
+                                    "protocol": "https",
+                                    "host": [
+                                        "tattoo-studio-fornesb",
+                                        "zeabur",
+                                        "app"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"serviceName\": \"Printed ilustrations\",\n  \"description\": \"Printed illustrations of the designs that you can later tattoo\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJlbWFpbCI6ImpvcmdlLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTcyMDk3NDI3NSwiZXhwIjoxNzIwOTgxNDc1fQ.l6UQ4IPAroDMvvPzfEa_z1YycA64BR-2IfA0ieF7Q6A",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Update service by ID (super_admin)",
+                            "request": {
+                                "method": "PUT",
+                                "url": {
+                                    "raw": "https://tattoo-studio-fornesb.zeabur.app/api/services/2",
+                                    "path": [
+                                        "api",
+                                        "services",
+                                        "2"
+                                    ],
+                                    "protocol": "https",
+                                    "host": [
+                                        "tattoo-studio-fornesb",
+                                        "zeabur",
+                                        "app"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"serviceName\":\"Piercing jewelry\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJlbWFpbCI6ImpvcmdlLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTcyMDk3NDI3NSwiZXhwIjoxNzIwOTgxNDc1fQ.l6UQ4IPAroDMvvPzfEa_z1YycA64BR-2IfA0ieF7Q6A",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Delete service by ID (super_admin)",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "tattoo-studio-fornesb.zeabur.app/api/services/3",
+                                    "path": [
+                                        "api",
+                                        "services",
+                                        "3"
+                                    ],
+                                    "host": [
+                                        "tattoo-studio-fornesb",
+                                        "zeabur",
+                                        "app"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZUlkIjoxLCJlbWFpbCI6ImpvcmdlLnJvZHJpZ3VlekBleGFtcGxlLmNvbSIsImlhdCI6MTcyMDk3NDI3NSwiZXhwIjoxNzIwOTgxNDc1fQ.l6UQ4IPAroDMvvPzfEa_z1YycA64BR-2IfA0ieF7Q6A",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get all services",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "https://tattoo-studio-fornesb.zeabur.app/api/services",
+                            "path": [
+                                "api",
+                                "services"
+                            ],
+                            "protocol": "https",
+                            "host": [
+                                "tattoo-studio-fornesb",
+                                "zeabur",
+                                "app"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

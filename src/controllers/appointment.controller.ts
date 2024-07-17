@@ -52,6 +52,9 @@ export const updateAppointment = async (req: Request, res: Response) => {
       const appointmentID = req.body.id;
       const body = req.body;
 
+      if (!parseInt(appointmentID)) {
+        throw new Error("Appointment ID needs to be specified");
+      }
       const Appointment = await appointment.findOne(
           {
               where: {
@@ -60,7 +63,6 @@ export const updateAppointment = async (req: Request, res: Response) => {
               }
           }
       )
-
       if (!Appointment) {
         throw new Error("Appointment does not exist!");
       }
