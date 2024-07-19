@@ -1,20 +1,25 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import { user } from "../database/models/user";
-import { error } from "console";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const users = await user.find({
-      select: {
-        id: true,
-        email: true,
+    const allUsers = await user.findAndCount({
+      select:{
+        firstName:true,
+        lastName:true,
+        email:true,
+        role:{
+          name:true
+        }
       },
+      relations: { role: {} }
     });
-    return res.json({
+    console.log(allUsers)  
+    res.json({
       success: true,
       message: "All users retrived successfully!",
-      data: users,
+      data: allUsers,
     });
   } catch (error) {
     res.status(500).json({
@@ -63,7 +68,7 @@ export const updateUserById = async (req: Request, res: Response) => {
     const userId = req.tokenData.id;
     const { firstName, lastName, email, password } = req.body;
     let passwordHash;
-    if (password){
+    if (password) {
       if (password.length < 8 || password.length > 12) {
         return res.status(400).json({
           success: false,
@@ -162,7 +167,21 @@ export const changeRoleUser = async (req: Request, res: Response) => {
     const { roleId } = req.body;
     const userId = Number(req.params.id);
 
-    const userToUpdate = await user.findOne({ where: { id: userId } });
+    const userToUpdate = await user.findOne({
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        role: {
+          name: true,
+        },
+      },
+      where: {
+        id: userId,
+      },
+      relations: { role: {} },
+    });
 
     if (!userToUpdate) {
       res.status(404).send({ message: "User not found." });
