@@ -30,6 +30,7 @@ export class User1720112224896 implements MigrationInterface {
             type: "varchar",
             length: "255",
             isNullable: false,
+            isUnique:true
           },
           {
             name: "password_hash",

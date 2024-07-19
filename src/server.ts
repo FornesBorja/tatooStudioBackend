@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors'
 import { AppDataSource } from "./database/database";
 import { createService, deleteServiceById, getAllServices, updateServiceById } from "./controllers/services.controller";
 import { login, register } from "./controllers/auth.controller";
@@ -8,6 +9,7 @@ import { changeRoleUser, deleteUser, filterUserByEmail, getAllUsers, getUserProf
 import { createAppointment, findAppointmendById, showAppointments, updateAppointment} from "./controllers/appointment.controller";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
