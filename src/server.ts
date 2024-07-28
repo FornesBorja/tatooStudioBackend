@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors'
 import { AppDataSource } from "./database/database";
 import { createService, deleteServiceById, getAllServices, updateServiceById } from "./controllers/services.controller";
 import { login, register } from "./controllers/auth.controller";
@@ -6,16 +7,9 @@ import { auth } from "./middleware/auth";
 import { isSuperAdmin } from "./middleware/isSuperAdmin";
 import { changeRoleUser, deleteUser, filterUserByEmail, getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
 import { createAppointment, findAppointmendById, showAppointments, updateAppointment} from "./controllers/appointment.controller";
-import cors from 'cors';
 
 const app = express();
-
-app.use(cors({
-  origin: 'https://tattoo-studio-fornesb.zeabur.app', 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
-app.options('*', cors());
+app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 4000;

@@ -5,18 +5,18 @@ import { user } from "../database/models/user";
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
     const allUsers = await user.find({
-      select:{
-        id:true,
-        firstName:true,
-        lastName:true,
-        email:true,
-        role:{
-          name:true
-        }
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        role: {
+          name: true,
+        },
       },
-      relations: { role: {} }
+      relations: { role: {} },
     });
-    console.log(allUsers)  
+    console.log(allUsers);
     res.json({
       success: true,
       message: "All users retrived successfully!",
@@ -76,7 +76,7 @@ export const updateUserById = async (req: Request, res: Response) => {
           mesaage: "password is not valid, 8 to 12 characters must be needed",
         });
       }
-      passwordHash = bcrypt.hashSync(password, 10)
+      passwordHash = bcrypt.hashSync(password, 10);
     }
     const userUpdated = await user.update(
       {
