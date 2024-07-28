@@ -11,7 +11,7 @@ export const createAppointment = async(req: Request, res: Response) => {
       const serviceId = req.body.serviceId;
 
       const [day, month, year] = date.split('/'||'-').map(Number);
-      const [hours, minute] = hour.split(':').map(Number);
+      const [hours, minute] = hour.split('  ').map(Number);
 
       if (!date || !hour || !artistId|| !serviceId) {
         throw new Error ("Date, hour, artist and service are needed")
