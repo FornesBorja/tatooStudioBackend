@@ -4,8 +4,9 @@ import { user } from "../database/models/user";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const allUsers = await user.findAndCount({
+    const allUsers = await user.find({
       select:{
+        id:true,
         firstName:true,
         lastName:true,
         email:true,
