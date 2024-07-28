@@ -16,10 +16,10 @@ export const register = async (req: Request, res: Response) => {
       });
     }
 
-    if (password.length < 8 || password.length > 12) {
+    if (password.length < 8 || password.length > 16) {
       return res.status(400).json({
         success: false,
-        mesaage: "password is not valid, 8 to 12 characters must be needed",
+        mesaage: "password is not valid, 8 to 16 characters must be needed",
       });
     }
     const passwordHash = bcrypt.hashSync(password, 10);
@@ -89,10 +89,7 @@ export const login = async (req: Request, res: Response) => {
         roleId: newUser.roleId,
         email: newUser.email
       },
-      process.env.JWT_SECRET as string,
-      {
-        expiresIn: "2h"
-      }
+      process.env.JWT_SECRET as string
     )
 
     res.status(200).json(
