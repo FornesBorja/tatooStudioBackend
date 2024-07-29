@@ -206,3 +206,61 @@ export const findAppointmendById = async (req: Request, res: Response) => {
 
   }
 }
+export const findAppointmendByUser = async (req: Request, res: Response) => {
+  try {
+      const clientId = req.tokenData.id;
+
+      if (isNaN(clientId)) {
+        throw new Error ("Invalid ID")
+
+      }
+
+      const Appointment = await appointment.findOne(
+          {
+            select: {
+              id: true,
+              appointmentDate: true,
+              client: {
+                  id: true,
+                  firstName:true,
+                  email: true
+              },
+              artist: {
+                id: true,
+                firstName:true,
+                email: true
+            },
+              service: {
+                  name: true
+              },
+          },
+              where: {
+                  client: { id: clientId }
+              },
+              relations: { client: {}, artist:{}, service: {} }
+          }
+      )
+
+      if (!Appointment) {
+          throw new Error ("Appointment not found or you cant search an appointment which is not your's");
+      }
+
+      return res.json(
+          {
+              success: true,
+              message: "Appointment retrived successfully!",
+              data: Appointment
+          }
+      )
+
+  } catch (error) {
+      res.status(500).json(
+          {
+              success: false,
+              message: "Error finding appointment",
+              error: error
+          }
+      )
+
+  }
+}

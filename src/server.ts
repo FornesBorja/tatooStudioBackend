@@ -6,7 +6,7 @@ import { login, register } from "./controllers/auth.controller";
 import { auth } from "./middleware/auth";
 import { isSuperAdmin } from "./middleware/isSuperAdmin";
 import { changeRoleUser, deleteUser, filterUserByEmail, getAllUsers, getUserProfile, updateUserById } from "./controllers/users.controller";
-import { createAppointment, findAppointmendById, showAppointments, updateAppointment} from "./controllers/appointment.controller";
+import { createAppointment, findAppointmendById, findAppointmendByUser, showAppointments, updateAppointment} from "./controllers/appointment.controller";
 
 const app = express();
 app.use(cors());
@@ -44,10 +44,10 @@ app.post('/api/appointments',auth, createAppointment)
 app.put('/api/appointments', auth, updateAppointment)        
 app.get('/api/appointments', auth, showAppointments)        
 app.get('/api/appointments/:id', auth, findAppointmendById)
+app.get('/api/appointments/user', auth, findAppointmendByUser)
 
 //Services
 app.get("/api/services", getAllServices)
-
 app.post("/api/services",auth, isSuperAdmin, createService)
 app.put("/api/services/:id",auth, isSuperAdmin, updateServiceById)
 app.delete("/api/services/:id",auth, isSuperAdmin, deleteServiceById)
