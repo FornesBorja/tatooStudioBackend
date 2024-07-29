@@ -32,7 +32,7 @@ app.post("/api/auth/login", login)
 app.get("/api/users", auth, isSuperAdmin, getAllUsers)
 app.get("/api/users/profile", auth, getUserProfile)
 app.put("/api/users/profile",auth, updateUserById)
-app.put("/api/users/artist", getArtistName)
+app.get("/api/users/artist", getArtistName)
 
 app.delete("/api/users/:id", auth, isSuperAdmin, deleteUser)
 app.put("/api/users/:id/role", auth, isSuperAdmin, changeRoleUser)
