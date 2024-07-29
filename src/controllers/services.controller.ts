@@ -29,7 +29,7 @@ export const createService = async (req: Request, res: Response) => {
   
       const newService = await service.create(
         {
-          serviceName:serviceName,
+          name:serviceName,
           description:description
         }
       ).save();

@@ -6,12 +6,12 @@ const serviceSeeder = async () => {
     await AppDataSource.initialize()
 
     const s1 = new service();
-    s1.serviceName = "Tatoo";
+    s1.name = "Tatoo";
     s1.description="High-quality custom tattoos designed by talented artists."
     await s1.save()
 
     const s2 = new service();
-    s2.serviceName = "Piercing";    
+    s2.name = "Piercing";    
     s2.description="It offers professional and safe piercing services performed by qualified experts."
     await s2.save()
 

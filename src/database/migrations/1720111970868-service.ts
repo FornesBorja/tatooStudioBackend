@@ -14,7 +14,7 @@ export class Service1720111970868 implements MigrationInterface {
             generationStrategy: "increment",
           },
           {
-            name: "service_name",
+            name: "name",
             type: "varchar",
             length: "255",
             isNullable:false,
