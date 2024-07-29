@@ -56,6 +56,7 @@ const createBooks = async (users: any) => {
   
     users.forEach((element: any, index: any) => {    
       const users = new user();
+      users.id=index+1;
       users.firstName = element.firstName;
       users.lastName = element.lastName;
       users.email= element.email;

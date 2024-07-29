@@ -6,7 +6,7 @@ const serviceSeeder = async () => {
     await AppDataSource.initialize()
 
     const s1 = new service();
-    s1.name = "Tatoo";
+    s1.name = "Tattoo";
     s1.description="High-quality custom tattoos designed by talented artists."
     await s1.save()
 
