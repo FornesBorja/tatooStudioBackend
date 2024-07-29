@@ -242,23 +242,23 @@ export const findAppointmendByUser = async (req: Request, res: Response) => {
       )
 
       if (!Appointment) {
-          throw new Error ("Appointment not found or you cant search an appointment which is not your's");
+          throw new Error ("Appointments not found or you ");
       }
 
       return res.json(
           {
               success: true,
-              message: "Appointment retrived successfully!",
+              message: "Appointments retrived successfully!",
               data: Appointment
           }
       )
 
-  } catch (error) {
+  } catch (error:any) {
       res.status(500).json(
           {
               success: false,
               message: "Error finding appointment",
-              error: error
+              error: error.message
           }
       )
 
