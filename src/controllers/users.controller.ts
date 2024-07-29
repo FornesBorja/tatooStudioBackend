@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import { user } from "../database/models/user";
+import { In } from "typeorm";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
@@ -30,6 +31,40 @@ export const getAllUsers = async (req: Request, res: Response) => {
     });
   }
 };
+export const getArtistName = async (req: Request, res: Response) => {
+  try {
+    const artists = await user.find({
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        role: {
+          name: true,
+        },
+      },
+      where: {
+        role: {
+          id: In([1, 2]) 
+        }
+      },
+      relations: { role: {} },
+    });
+
+    res.json({
+      success: true,
+      message: "Artists retrieved successfully!",
+      data: artists,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error showing artists",
+      error: error,
+    });
+  }
+};
+
 
 export const getUserProfile = async (req: Request, res: Response) => {
   try {
