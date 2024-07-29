@@ -115,7 +115,7 @@ export const showAppointments = async (req: Request, res: Response) => {
                     email: true
                 },
                   service: {
-                      serviceName: true
+                      name: true
                   },
               },
               where:
@@ -172,7 +172,7 @@ export const findAppointmendById = async (req: Request, res: Response) => {
                 email: true
             },
               service: {
-                  serviceName: true
+                  name: true
               },
           },
               where: {
